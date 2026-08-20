@@ -27,7 +27,7 @@ def contextualize_query(query, messages):
         return query
     
     # Extract the last 6 messages to form the recent chat history
-    history = "\n".join([f"{m['role']}: {m['content']}" for m in messages[-6:]])
+    history = "\n".join([f"{m['role']}: {m['content']}" for m in messages[0:]])
     
     # Combine the instructions, chat history, and the new query
     prompt = f"{contextualize_prompt}\n\nChat History:\n{history}\n\nLatest Question: {query}\n\nStandalone Question:"
